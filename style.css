@@ -199,7 +199,7 @@
     Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Source Han Sans SC,
     Noto Sans CJK SC, Microsoft YaHei, WenQuanYi Micro Hei, WenQuanYi Zen Hei,
     Helvetica Neue, Arial, sans-serif;
-  --entry-content-quote-font-family: Georgia, -apple-system-ui-serif, ui-serif, serif;
+  --entry-content-quote-font-family: var(--entry-content-font-family);
 }
 
 * {
@@ -622,8 +622,7 @@ a {
         & .page-link[href^="/feed/"][href$="/entries/all"] {
         }
         /* 更新 */
-        &
-          .page-button[data-url^="/feed/"][data-url$="/refresh?forceRefresh=true"] {
+        & .page-button[data-url^="/feed/"][data-url$="/refresh?forceRefresh=true"] {
         }
         /* 编辑 */
         & .page-link[href="/feed/"][href$="/edit"] {
@@ -683,7 +682,6 @@ main {
         font-size: 0;
         display: inline-block;
         width: 32px;
-        display: flex;
         flex-direction: column;
         align-items: center;
         padding: 0;
@@ -1233,7 +1231,6 @@ main .pagination-bottom {
       font-size: 0;
       display: inline-block;
       width: 32px;
-      display: flex;
       flex-direction: column;
       align-items: center;
       padding: 0;
@@ -1316,7 +1313,6 @@ main .pagination-bottom {
     padding: 8px 16px;
     background: var(--body-background);
     right: 8px;
-    padding: 0;
     top: 56px;
     & ul {
       display: flex;
@@ -1469,7 +1465,7 @@ main .pagination-bottom {
       animation: fadein var(--article-animation-duration) ease-in;
       & .entry-author {
         order: 0;
-        font-size: 0rem;
+        font-size: 0;
         padding: 0;
         margin: 0;
         & em,
@@ -1529,7 +1525,7 @@ main .pagination-bottom {
 
 /* 修正文章页顶边距 */
 .entry + main {
-  padding-top: 0px;
+  padding-top: 0;
 }
 /* 文章详情页-主体内容 */
 main {
@@ -1555,10 +1551,8 @@ main {
     & blockquote {
       border-left: 2px solid #ddd;
       margin: 0 0 0 4px;
-      padding: 0 10px 0 8px;
-      font-style: none;
-      font-size: 0.95em;
-      line-height: 1.4em;
+      padding: 0 16px 0 10px;
+      line-height: 1.6em;
     }
     /* 表格 */
     & table {
@@ -1618,7 +1612,6 @@ main .pagination-entry-bottom {
       font-size: 0;
       display: inline-block;
       width: 32px;
-      display: flex;
       flex-direction: column;
       align-items: center;
       padding: 0;
