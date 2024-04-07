@@ -1,147 +1,14 @@
-/* miniflux-theme-reeder：
-使用css原生嵌套，基于官方css修改，移除冗余操作，适配移动端，适配暗黑模式
-复制到 设置-自定义CSS */
-
-/* 自定义配置start（可根据自己喜好配置） */
-:root {
-  /* 文章详情页 */
-  /* 标题 */
-  --article-title-font-size: 1.3rem; /* 标题字号 */
-  --article-title-line-height: 1.4; /* 标题行高 */
-  --article-title-font-weight: 800; /* 标题粗细 */
-  /* 文章内容 */
-  --article-content-font-size: 1.025rem; /* 字号 */
-  --article-content-line-height: 1.6; /* 行高 */
-  --article-content-font-weight: 400; /* 粗细 */
-  --article-top-padding: 80px; /* 顶部padding */
-  --article-bottom-padding: 96px; /* 底部padding */
-
-  /* 动画速度（0为禁用） */
-  --item-animation-duration: 120ms; /* 文章卡片 */
-  --article-animation-duration: 120ms; /* 文章内容 */
-
-  /* 文章卡片按钮（none 不显示；inline-blcok 显示;font-size 0为不显示） */
-  --item-meta-icons-read: none; /* 已读/未读 */
-  --item-meta-icons-read-font-size: 0;
-  --item-meta-icons-star: none; /* 收藏 */
-  --item-meta-icons-star-font-size: 0;
-  --item-meta-icons-share: none; /* 分享 */
-  --item-meta-icons-share-font-size: 0;
-  --item-meta-icons-delete: none; /* 取消分享 */
-  --item-meta-icons-delete-font-size: 0;
-  --item-meta-icons-save: none; /* 保存 */
-  --item-meta-icons-save-font-size: 0;
-  --item-meta-icons-external-url: none; /* 跳转原文 */
-  --item-meta-icons-external-url-font-size: 0;
-  --item-meta-icons-comments: none; /* 跳转评论 */
-  --item-meta-icons-comments-font-size: 0;
-
-  /* 源卡片按钮（none 不显示；inline-block 显示;font-size 0为不显示） */
-  --item-meta-icons-refresh: inline; /* 刷新源 */
-  --item-meta-icons-refresh-font-size: 0;
-  --item-meta-icons-edit-feed: inline; /* 编辑源 */
-  --item-meta-icons-edit-feed-font-size: 0;
-  --item-meta-icons-remove-feed: inline; /* 删除源 */
-  --item-meta-icons-remove-feed-font-size: 0;
-  --item-meta-icons-mark-as-read-feed: inline; /* 全部标记为已读 */
-  --item-meta-icons-mark-as-read-feed-font-size: 0.8rem;
-
-  /* 分类卡片（none 不显示；inline-block 显示;font-size 0为不显示） */
-  --item-meta-icons-entries: none; /* 查看所有文章 */
-  --item-meta-icons-entries-font-size: 0.8rem;
-  --item-meta-icons-feeds: inline; /* 查看所有源 */
-  --item-meta-icons-feeds-font-size: 0.8rem;
-  --item-meta-edit: inline; /* 编辑分类 */
-  --item-meta-edit-font-size: 0.8rem;
-  --item-meta-icons-mark-as-read: inline; /* 全部标记为已读 */
-  --item-meta-icons-mark-as-read-font-size: 0.8rem;
-
-  /* 手机版文章详情页按钮（none 不显示；inline-flex 显示） */
-  --data-toggle-status: inline-flex; /* 已读/未读 */
-  --data-toggle-bookmark: inline-flex; /* 收藏 */
-  --data-save-entry: inline-flex; /* 保存 */
-  --data-share-status: inline-flex; /* 分享 */
-  --data-confirm: inline-flex; /* 取消分享 */
-  --data-original-link: inline-flex; /* 跳转原文 */
-  --data-fetch-content-entry: inline-flex; /* 抓取全文 */
-  --data-comments-link: inline-flex; /* 跳转评论 */
-
-  /* 文章详情页-底部四个按钮（替换[]里的内容） */
-  .entry .entry-header .entry-actions ul li {
-    /* 第一个按钮 */
-    & .page-button[data-toggle-status] {
-      width: 40px;
-      height: 40px;
-      position: fixed;
-      bottom: calc(8px + constant(safe-area-inset-bottom));
-      bottom: calc(8px + env(safe-area-inset-bottom));
-      left: 0;
-      transform: translateX(24px);
-      @media screen and (min-width: 821px) {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-388px);
-      }
-    }
-    /* 第二个按钮 */
-    & .page-button[data-toggle-bookmark] {
-      width: 40px;
-      height: 40px;
-      position: fixed;
-      bottom: calc(8px + constant(safe-area-inset-bottom));
-      bottom: calc(8px + env(safe-area-inset-bottom));
-      left: 25%;
-      transform: translateX(0);
-      @media screen and (min-width: 821px) {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-204px);
-      }
-    }
-    /* 第三个按钮 */
-    & .page-button[data-fetch-content-entry] {
-      width: 40px;
-      height: 40px;
-      position: fixed;
-      bottom: calc(8px + constant(safe-area-inset-bottom));
-      bottom: calc(8px + env(safe-area-inset-bottom));
-      left: 75%;
-      transform: translateX(-42px);
-      @media screen and (min-width: 821px) {
-        position: fixed;
-        left: 50%;
-        transform: translateX(174px);
-      }
-    }
-    /* 第四个按钮 */
-    & .page-link[data-original-link] {
-      width: 40px;
-      height: 40px;
-      position: fixed;
-      bottom: calc(8px + constant(safe-area-inset-bottom));
-      bottom: calc(8px + env(safe-area-inset-bottom));
-      left: 100%;
-      transform: translateX(-64px);
-      @media screen and (min-width: 821px) {
-        left: 50%;
-        transform: translateX(346px);
-      }
-    }
-  }
-}
-/* 自定义配置end */
-
 :root {
   --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
-  --body-color: #454545;
-  --body-background: #f7f6f4;
+  --body-color: #1E1E1E;
+  --body-background: #F7F6F4;
   --item-background: #fafbfc;
   --item-background-hover: #f3f4f6;
   --hr-border-color: #ccc;
   --title-color: #454545;
-  --link-color: #252524;
+  --link-color: #CD5C5C;
   --link-focus-color: #e5e7eb;
   --link-focus-bg-color: #e9e8e6;
   --link-hover-color: var(--link-color);
@@ -213,7 +80,7 @@
   --current-item-box-shadow: none;
   --entry-header-border-color: #e5e7eb;
   --entry-header-title-link-color: #4a4a4a;
-  --entry-content-color: #6f6f6e;
+  --entry-content-color: #1E1E1E;
   --entry-content-code-color: #374151;
   --entry-content-code-background: #eaeae8;
   --entry-content-code-border-color: #e5e7eb;
@@ -238,7 +105,6 @@
     --item-background-hover: #393939;
     --hr-border-color: #4b5563;
     --title-color: #dfdede;
-    --link-color: #dfdfdf;
     --link-focus-color: #e5e7eb;
     --link-focus-bg-color: #383635;
     --link-hover-color: var(--link-color);
@@ -333,8 +199,7 @@
     Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Source Han Sans SC,
     Noto Sans CJK SC, Microsoft YaHei, WenQuanYi Micro Hei, WenQuanYi Zen Hei,
     Helvetica Neue, Arial, sans-serif;
-  --entry-content-quote-font-family: Consolas, monaco, "Ubuntu Mono",
-    "Liberation Mono", "Courier New", Courier, monospace;
+  --entry-content-quote-font-family: Georgia, -apple-system-ui-serif, ui-serif, serif;
 }
 
 * {
