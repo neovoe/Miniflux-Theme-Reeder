@@ -311,7 +311,8 @@ a:active {
   }
 }
 
-.flash-message {
+.flash-message,
+.flash-error-message {
   position: fixed;
   top: 90px;
   max-width: 820px;
